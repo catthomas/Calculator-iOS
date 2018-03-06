@@ -9,10 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    //----------------- VARIABLE DECLARATION EXAMPLE ---------//
     @IBOutlet var numberLabel: UILabel!
     var currentOperation: String? = nil
     var mathString: String = ""
     
+    
+    // -------------- FUNCTIONS EXAMPLES ----------------//
     // clear numbers function
     @IBAction func hitClear(){
         numberLabel.text = "0"
@@ -28,6 +31,7 @@ class ViewController: UIViewController {
     
     // percentage function
     @IBAction func hitPercentage() {
+        // ------------------- COMMENTS & MATH EXAMPLE ----------//
         // divides the number by 100
         let number = Double(numberLabel.text ?? "0") ?? 0
         numberLabel.text = "\(number/100)"
@@ -38,9 +42,12 @@ class ViewController: UIViewController {
             if let original = numberLabel.text, original != "0" && currentOperation == nil {
                 numberLabel.text?.append(number)
             } else {
+                
+                // ----------- IF LET EXAMPLE ------------------//
                 if let op = currentOperation {
                     mathString.append(numberLabel.text ?? "")
                     
+                    //------------- IF STATEMENT EXAMPLE -----------//
                     if op == "x" {
                         mathString.append("*")
                     } else {
@@ -67,8 +74,10 @@ class ViewController: UIViewController {
     
     // equals function
     @IBAction func hitEquals() {
+        // --------- OPTIONAL UNWRAPPING EXAMPLE --------//
         mathString.append(numberLabel.text ?? "")
         let exp = NSExpression(format: mathString)
+        
         if let result = exp.expressionValue(with: nil, context: nil) as? Double {
             numberLabel.text = "\(result)"
         }
